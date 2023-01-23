@@ -1,5 +1,8 @@
+"""This is my own context manager to database"""
+
 
 class Database:
+    """This is class of context manager."""
     def __init__(self, connection):
         self.connection = connection
         self.cursor = None
