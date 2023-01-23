@@ -15,6 +15,6 @@ class Database:
         if isinstance(exc_val, Exception):
             self.connection.rollback()
         else:
-            self.cursor.commit()
+            self.connection.commit()
 
         self.connection.close()
