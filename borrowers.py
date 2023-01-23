@@ -37,7 +37,7 @@ class Borrowers:
         entity = []
         with Database(get_connect) as database:
             database.cursor.execute("""
-            SELECT Email, Name, Return_at WHERE Return_at < ?
+            SELECT Email, Name, Item, Return_at FROM borrows WHERE Return_at < ?
             """, (return_at,))
             for email, name, item, date_return_at in database.cursor.fetchall():
                 entity.append(Entity(email, name, item, date_return_at))
@@ -48,7 +48,7 @@ class Borrowers:
         """
         Method to add borrows
         :param add_connect: sqlite
-        :type add_connect: str
+        :type add_connect:
         :param email: email
         :type email: str
         :param name: name of borrows
